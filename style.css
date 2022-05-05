@@ -1,0 +1,166 @@
+:root {
+    --primary-clr: #5557ab;
+    --secondary-clr: #5E521C;
+    --light-clr: #f4f4f4;
+    --dark-clr: #333;
+}
+
+*,
+*::before,
+*::after {
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+    color: var(--dark-clr);
+    background-color: var(--light-clr);
+    line-height: 1.5;
+}
+
+.task-list-container {
+    max-width: 450px;
+    margin: 0 auto 1em auto;
+    padding: 0 0.5em;
+}
+
+.title {
+    color: var(--primary-clr);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    text-align: center;
+}
+
+.btn {
+    cursor: pointer;
+    background: 0;
+    border: 0;
+    padding: 0;
+    color: inherit;
+}
+
+.delete-button {
+    font-size: 1.5rem;
+    color: var(--secondary-clr);
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+    transform: scale(1);
+    transition: transform 150ms ease-in;
+}
+
+.delete-button:hover,
+.delete-button:focus {
+    transform: scale(1.2);
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5em;
+    position: relative;
+}
+
+.task::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: -0.5em;
+    height: 2px;
+    background: var(--primary-clr);
+    opacity: 0.5;
+}
+
+.task label {
+    word-wrap: anywhere;
+}
+
+.task button {
+    display: none;
+}
+
+.hidden-checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+.custom-checkbox {
+    display: inline-block;
+    width: 0.75em;
+    height: 0.75em;
+    margin-right: 0.75em;
+    cursor: pointer;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    transform: scale(1);
+    transition: transform 300ms ease-in;
+}
+
+.task label:hover .custom-checkbox,
+.hidden-checkbox:focus + label .custom-checkbox {
+    transform: scale(1.2);
+    color: var(--secondary-clr);
+}
+
+.hidden-checkbox:checked + label .custom-checkbox {
+    background: var(--secondary-clr);
+    border-color: var(--secondary-clr);
+    box-shadow: inset 0 0 0px 2px white;
+}
+
+.hidden-checkbox:checked + label {
+    opacity: 0.5;
+    text-decoration: line-through;
+    text-decoration-color: var(--secondary-clr);
+}
+
+.hidden-checkbox:checked + label + button {
+    display: inline-block;
+}
+
+.new-task-form {
+    display: flex;
+}
+
+.new-task-input {
+    background: transparent;
+    border: 0;
+    color: inherit;
+    border-bottom: 1px solid var(--primary-clr);
+    font-size: inherit;
+    outline: none;
+    padding: 0.25em;
+    transition: border-bottom 150ms ease-in;
+    flex: 1;
+}
+
+.new-task-input:focus {
+    border-bottom-width: 3px;
+}
+
+.new-task-input:focus::placeholder {
+    opacity: 0.3;
+}
+
+.new-task-button {
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: var(--light-clr);
+    background: var(--primary-clr);
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+    transform: scale(1);
+    transition: transform 250ms ease-in;
+}
+
+.new-task-button:hover,
+.new-task-button:focus {
+    transform: scale(1.2);
+}
